@@ -50,7 +50,7 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/t1", method = RequestMethod.GET)
-    public String getSessionId() {
+    public String redisT1() {
         valOpsStr.set("1234", "321");
         return valOpsStr.get("1234");
     }
