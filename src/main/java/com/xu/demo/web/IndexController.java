@@ -1,5 +1,7 @@
 package com.xu.demo.web;
 
+import com.mongodb.BasicDBList;
+import com.mongodb.BasicDBObject;
 import com.xu.demo.mapper.BotXMapper;
 import com.xu.demo.pojo.dao.BotX;
 import net.sf.json.JSONObject;
@@ -7,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -55,7 +58,7 @@ public class IndexController {
         return valOpsStr.get("1234");
     }
 
-    @RequestMapping(value = "/t2", method = RequestMethod.GET)
+    @RequestMapping(value = "/mt1", method = RequestMethod.GET)
     public void mongoT1() {
         String BASE_INFO_COLLECTION = "baseInfo";
         JSONObject json = new JSONObject();
@@ -63,11 +66,28 @@ public class IndexController {
         mongoTemplate.insert(json, BASE_INFO_COLLECTION);
     }
 
-    @RequestMapping(value = "/t3", method = RequestMethod.GET)
+    @RequestMapping(value = "/mt2", method = RequestMethod.GET)
     public long MongoT2() {
         String BASE_INFO_COLLECTION = "baseInfo";
         Query query = new Query(Criteria.where("id").is("123"));
         return mongoTemplate.count(query, BASE_INFO_COLLECTION);
+    }
+
+    @RequestMapping(value = "/mt3", method = RequestMethod.GET)
+    public void MongoT3() {
+        BotX x = new BotX();
+        x.setId(111);
+        x.setBot("doudou");
+        mongoTemplate.save(x);
+    }
+
+    @RequestMapping(value = "/mt4", method = RequestMethod.GET)
+    public BotX MongoT4() {
+        BasicDBList andList = new BasicDBList();
+        andList.add(new BasicDBObject("bot", "doudou"));
+        BasicDBObject andDBObject = new BasicDBObject("$and", andList);
+
+        return mongoTemplate.findOne(new BasicQuery(andDBObject), BotX.class);
     }
 
 }
