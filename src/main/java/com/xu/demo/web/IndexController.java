@@ -39,7 +39,7 @@ public class IndexController {
     ValueOperations<String, String> valOpsStr;
 
 
-    @RequestMapping(value = "/xuhua", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/xuhua", method = RequestMethod.GET)
     public String xuhua() throws Exception {
         BotX botX = botXMapper.findById(1);
         logger.info(botX.getName());

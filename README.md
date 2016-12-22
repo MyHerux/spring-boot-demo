@@ -43,6 +43,25 @@
   直接访问http://localhost:8080/druid/login.html，输入账号密码即可进入druid监控。
   
 - 集成Mybatis
+  
+  1.配置
+  ```
+  @Mapper
+  public interface BotXMapper {
+  
+      @Select("select * from botx where id=#{id}")
+      BotX findById(@Param("id") Integer id);
+  }
+  ```
+  2.使用
+  ```
+   @RequestMapping(value = "/xuhua", method = RequestMethod.GET)
+      public String xuhua() throws Exception {
+          BotX botX = botXMapper.findById(1);
+          logger.info(botX.getName());
+          return botX.getName();
+      }
+  ```
 - 集成Redis
 
   1.配置
