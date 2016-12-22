@@ -125,3 +125,35 @@
        return mongoTemplate.count(query, BASE_INFO_COLLECTION);
    }
   ```
+- 集成swagger
+  1.配置
+  ```
+  <!--swagger-->
+      <dependency>
+          <groupId>io.springfox</groupId>
+          <artifactId>springfox-swagger2</artifactId>
+          <version>2.2.2</version>
+      </dependency>
+      <dependency>
+          <groupId>io.springfox</groupId>
+          <artifactId>springfox-swagger-ui</artifactId>
+          <version>2.2.2</version>
+      </dependency>
+  
+  ```
+  2.使用
+  ```
+      @ApiOperation(value = "获取信息")
+      @ApiImplicitParams({
+              @ApiImplicitParam(name = "name",value = "姓名")
+      })
+      @ApiResponses({
+              @ApiResponse(code = 400,message = "请求失败")
+      })
+      @RequestMapping(value = "/xuhua", method = RequestMethod.GET)
+      public String xuhua() throws Exception {
+          BotX botX = botXMapper.findById(1);
+          logger.info(botX.getName());
+          return botX.getName();
+      }
+  ```

@@ -4,6 +4,7 @@ import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.xu.demo.mapper.BotXMapper;
 import com.xu.demo.pojo.dao.BotX;
+import io.swagger.annotations.*;
 import net.sf.json.JSONObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,7 +39,13 @@ public class IndexController {
     @Resource(name = "stringRedisTemplate")
     ValueOperations<String, String> valOpsStr;
 
-
+    @ApiOperation(value = "获取信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "name",value = "姓名")
+    })
+    @ApiResponses({
+            @ApiResponse(code = 400,message = "请求失败")
+    })
     @RequestMapping(value = "/xuhua", method = RequestMethod.GET)
     public String xuhua() throws Exception {
         BotX botX = botXMapper.findById(1);
