@@ -29,5 +29,14 @@ spring:
     # 在每次空闲连接回收器线程(如果有)运行时检查的连接数量（设置为和maxIdle一样）
     numTestsPerEvictionRun: 100
 
+
 # 打印sql执行信息
+logging:
+  level:
+    com:
+      xu:
+        demo:
+          mapper: debug
+
+
 
