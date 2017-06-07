@@ -1,0 +1,33 @@
+server:
+  port: 8089
+
+# mysql-druid
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/xus
+    username: root
+    password: 4321
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxIdle: 100
+    maxActive: 200
+    # 配置获取连接等待超时的时间
+    maxWait: 5000
+    # 每次使用连接时进行校验，会影响系统性能。默认为false
+    testOnBorrow: false
+    # 验证使用的SQL语句
+    validationQuery: SELECT 1
+    # 指明连接是否被空闲连接回收器(如果有)进行检验.如果检测失败,则连接将被从池中去除
+    testWhileIdle: true
+    # 每30秒运行一次空闲连接回收器（默认-1）
+    timeBetweenEvictionRunsMillis: 30000
+    # 池中的连接空闲30分钟后被回收（默认30分钟）
+    minEvictableIdleTimeMillis: 1800000
+    # 在每次空闲连接回收器线程(如果有)运行时检查的连接数量（设置为和maxIdle一样）
+    numTestsPerEvictionRun: 100
+
+# 打印sql执行信息
+

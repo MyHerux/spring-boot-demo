@@ -1,4 +1,4 @@
-package com.xu.demo.web.base;
+package com.xu.demo.config;
 
 import com.alibaba.druid.support.http.WebStatFilter;
 

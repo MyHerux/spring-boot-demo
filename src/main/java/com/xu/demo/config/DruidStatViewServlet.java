@@ -1,4 +1,4 @@
-package com.xu.demo.web.base;
+package com.xu.demo.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 
@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
  *
  * @author Administrator
  */
-
 @WebServlet(urlPatterns = "/druid/*",
         initParams = {
                 @WebInitParam(name = "allow", value = "127.0.0.1"),// IP白名单 (没有配置或者为空，则允许所有访问)

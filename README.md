@@ -37,10 +37,15 @@
   # 合并多个DruidDataSource的监控数据
   #spring.datasource.useGlobalDataSourceStat=true
   ```
+  
   2.状态监控的filter与servlet
+  
   [filter与servlet配置](https://github.com/MyHerux/spring-boot-demo/tree/master/src/main/java/com/xu/demo/web/base)
-  3.访问
+  
   直接访问http://localhost:8080/druid/login.html，输入账号密码即可进入druid监控。
+  
+  3.使用DataSourceConfig来替换默认配置
+  
   
 - 集成Mybatis
   
@@ -128,7 +133,7 @@
 - 集成swagger
   1.配置
   ```
-  <!--swagger-->
+      <!--swagger-->
       <dependency>
           <groupId>io.springfox</groupId>
           <artifactId>springfox-swagger2</artifactId>
