@@ -154,7 +154,7 @@
 
 - 配置状态监控的`Filter`与`Servlet`
 
-  [Filter与Servlet配置.](https://github.com/MyHerux/spring-boot-demo/tree/master/src/main/java/com/xu/demo/web/base)
+  [Filter与Servlet配置.](https://github.com/MyHerux/spring-boot-demo/tree/master/src/main/java/com/xu/demo/config)
 
   直接访问`http://localhost:8080/druid/login.html`，输入账号密码即可进入`druid`监控。
 
