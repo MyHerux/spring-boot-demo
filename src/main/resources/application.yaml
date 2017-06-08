@@ -1,8 +1,9 @@
 server:
   port: 8089
 
-# mysql-druid
 spring:
+
+  # mysql-druid
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
@@ -28,6 +29,28 @@ spring:
     minEvictableIdleTimeMillis: 1800000
     # 在每次空闲连接回收器线程(如果有)运行时检查的连接数量（设置为和maxIdle一样）
     numTestsPerEvictionRun: 100
+
+  # redis
+  redis:
+    database: 0       # Redis数据库索引（默认为0）
+    host:
+    port:
+    password: :
+    timeout:    # ms
+    pool:
+      max-active: 12   # 连接池最大连接数（使用负值表示没有限制）
+      max-wait: -1     # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      max-idle: 4      # 连接池中的最大空闲连接
+      min-idle: 1      # 连接池中的最小空闲连接
+
+  # mongo
+  data:
+    mongodb:
+      database:
+      host:
+      port:
+      username:
+      password:
 
 
 # 打印sql执行信息

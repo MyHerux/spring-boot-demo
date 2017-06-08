@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSONObject;
 
 public class ResultBody {
 
-
     public static JSONObject json(Object data) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("response_code", ExceptionType.SUCCESS.getCode());

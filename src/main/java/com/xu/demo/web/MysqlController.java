@@ -24,6 +24,8 @@ public class MysqlController {
         this.infoMapper = infoMapper;
     }
 
+
+
     @ApiOperation(value = "获取信息", response = Info.class)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "用户id", dataType = "Integer")
@@ -36,8 +38,9 @@ public class MysqlController {
         return infoMapper.findById(1);
     }
 
-
+    @ApiOperation(value = "异常抛出", response = Info.class)
     @ApiImplicitParam(name = "id", value = "用户id", dataType = "Integer")
+    @ApiResponse(code = 200, message = "success")
     @GetMapping(value = "/throw_exception")
     public Info ThrowException(@RequestParam(value = "id") Integer id) throws BusinessException {
         if (id == 1)
